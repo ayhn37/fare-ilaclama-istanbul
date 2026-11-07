@@ -143,13 +143,13 @@ section{padding:80px 20px}
 .calc-input-group input:focus{border-color:var(--primary)}
 .calc-input-group button{background:var(--primary);color:#fff;border:none;border-radius:var(--radius-md);padding:0 24px;font-size:16px;font-weight:700;cursor:pointer;transition:.2s}
 .calc-input-group button:hover{background:var(--primary-hover)}
-.calc-result{background:var(--bg-light);border-radius:var(--radius-md);padding:24px;margin-top:20px;display:none}
+.calc-result{background:var(--bg-light);border-radius:var(--radius-md);padding:24px;margin-top:20px;display:none;text-align:left}
 .calc-result.show{display:block;animation:fadeIn .3s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.calc-result h4{font-size:16px;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
-.calc-result .price{font-size:36px;font-weight:800;color:var(--primary);margin-bottom:8px}
-.calc-result .note{font-size:14px;color:var(--text-muted);margin-bottom:20px}
-.calc-result .btn{width:100%}
+.calc-row{display:flex;justify-content:space-between;margin-bottom:10px;font-size:15px;color:var(--text-main);font-weight:500}
+.calc-total{display:flex;justify-content:space-between;margin-top:15px;padding-top:15px;border-top:2px solid var(--border);font-size:20px;font-weight:800;color:var(--primary)}
+.calc-result .btn{width:100%;margin-top:20px}
+
 .price-note{text-align:center;margin-top:25px;font-size:14px;color:var(--text-muted)}
 
 .districts-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
@@ -391,21 +391,22 @@ section{padding:50px 20px}
 <div class="container">
 <div class="section-header">
 <h2 class="section-title">Şeffaf Fiyatlandırma</h2>
-<p class="section-subtitle">Uygulama yapılacak alanın metrekaresine göre anında fiyat hesaplayın</p>
+<p class="section-subtitle">Uygulama yapılacak alanın metrekaresine göre anında KDV'li fiyat hesaplayın</p>
 </div>
 
-<!-- YENİ: SADECE HESAPLAYICI (TABLO KALDIRILDI) -->
+<!-- SADECE HESAPLAYICI (TABLO YOK) -->
 <div class="calculator-card">
 <h3>Anlık Fiyat Hesaplayıcı</h3>
-<p>Alanınızın metrekaresini girin, tahmini hizmet bedelini anında görün.</p>
+<p>Alanınızın metrekaresini girin, tahmini hizmet bedelini (KDV Dahil) anında görün.</p>
 <div class="calc-input-group">
-<input type="number" id="m2Input" placeholder="Örn: 120" min="1" max="1000">
+<input type="number" id="m2Input" placeholder="Örn: 120" min="1" max="500">
 <button onclick="calculatePrice()">Hesapla</button>
 </div>
 <div class="calc-result" id="calcResult">
-<h4>Tahmini Hizmet Bedeli</h4>
-<div class="price" id="priceDisplay">0 TL</div>
-<div class="note" id="noteDisplay"></div>
+<!-- Dinamik Sonuç Alanı -->
+<div class="calc-row"><span>1. Seans Ücreti (KDV Hariç):</span> <span id="basePrice"></span></div>
+<div class="calc-row"><span>KDV (%20):</span> <span id="vatAmount"></span></div>
+<div class="calc-total"><span>TOPLAM TUTAR:</span> <span id="totalPrice"></span></div>
 <a href="tel:+908504660022" class="btn btn-primary">📞 Bu Fiyat İçin Hemen Arayın</a>
 </div>
 </div>
@@ -600,37 +601,51 @@ btn.parentElement.classList.toggle('open');
 });
 });
 
-// ============ FİYAT HESAPLAYICI MANTIĞI ============
+// ============ GELİŞMİŞ KADEMELİ FİYAT HESAPLAYICI ============
 function calculatePrice() {
-  const m2 = document.getElementById('m2Input').value;
+  let m2 = parseInt(document.getElementById('m2Input').value);
   const resultDiv = document.getElementById('calcResult');
-  const priceText = document.getElementById('priceDisplay');
-  const noteText = document.getElementById('noteDisplay');
-
+  
   if (!m2 || m2 <= 0) {
     alert("Lütfen geçerli bir metrekare değeri girin.");
     return;
   }
 
-  let price = "";
-  let note = "";
-
-  if (m2 <= 100) {
-    price = "800 - 1.000 TL";
-    note = "0-100 m² arası standart uygulama bedeli.";
-  } else if (m2 <= 150) {
-    price = "1.000 - 1.500 TL";
-    note = "100-150 m² arası standart uygulama bedeli.";
-  } else if (m2 <= 250) {
-    price = "1.500 - 2.000 TL";
-    note = "150-250 m² arası standart uygulama bedeli.";
-  } else {
-    price = "Özel Teklif";
-    note = "250 m² üzeri alanlar için lütfen bizimle iletişime geçin.";
+  if (m2 > 400) {
+    alert("400 m² üzeri alanlar için lütfen bizimle iletişime geçin.");
+    return;
   }
 
-  priceText.innerText = price;
-  noteText.innerText = note;
+  let basePrice = 0;
+
+  // Kademeli Tarife (KDV Hariç)
+  if (m2 <= 100) basePrice = 2500;
+  else if (m2 <= 130) basePrice = 2750;
+  else if (m2 <= 160) basePrice = 3000;
+  else if (m2 <= 190) basePrice = 3250;
+  else if (m2 <= 220) basePrice = 3500;
+  else if (m2 <= 250) basePrice = 3750;
+  else if (m2 <= 280) basePrice = 4000;
+  else if (m2 <= 310) basePrice = 4250;
+  else if (m2 <= 340) basePrice = 4500;
+  else if (m2 <= 370) basePrice = 4750;
+  else if (m2 <= 400) basePrice = 5000;
+
+  // Hesaplamalar
+  const vatAmount = basePrice * 0.20;
+  const totalPrice = basePrice + vatAmount;
+
+  // Formatlama
+  const formatTL = (num) => new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', minimumFractionDigits: 0 }).format(num);
+
+  // Sonuçları Ekrana Yazdır
+  document.getElementById('basePrice').innerText = formatTL(basePrice);
+  document.getElementById('vatAmount').innerText = formatTL(vatAmount);
+  document.getElementById('totalPrice').innerText = formatTL(totalPrice);
+  
+  // Animasyonla Göster
+  resultDiv.classList.remove('show');
+  void resultDiv.offsetWidth; // Trigger reflow for animation
   resultDiv.classList.add('show');
 }
 
