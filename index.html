@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İstanbul Fare İlaçlama | İl Sağlık Müdürlüğü Ruhsatlı Firma</title>
+<meta name="description" content="İstanbul'un 39 ilçesinde İl Sağlık Müdürlüğü ruhsatlı, Sağlık Bakanlığı onaylı ilaçlarla profesyonel fare ilaçlama. Ücretsiz keşif, 7/24 hizmet. 0850 466 00 22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--primary:#059669;
+--primary-hover:#047857;
+--primary-light:#ecfdf5;
+--dark:#0f172a;
+--dark-surface:#1e293b;
+--text-main:#334155;
+--text-muted:#64748b;
+--bg-light:#f8fafc;
+--border:#e2e8f0;
+--radius-lg:16px;
+--radius-md:12px;
+--radius-sm:8px;
+--shadow-sm:0 1px 2px 0 rgb(0 0 0 / 0.05);
+--shadow-md:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+--shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--text-main);line-height:1.6}
+
+.topbar{background:linear-gradient(90deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:8px 20px;font-size:14px;font-weight:500;text-align:center;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+.topbar a{color:#34d399;font-weight:700;text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+
+header{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border)}
+.nav-container{max-width:1240px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800;color:var(--dark);text-decoration:none;letter-spacing:-.5px}
+.logo span{color:var(--primary)}
+.nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+.nav-links a{color:var(--text-main);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+
+.dropdown{position:relative}
+.dropdown-toggle{cursor:pointer;display:flex;align-items:center;gap:4px}
+.dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-xl);padding:24px;width:600px;margin-top:12px;grid-template-columns:1fr 1fr;gap:24px}
+.dropdown:hover .dropdown-menu{display:grid}
+.drop-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.drop-col ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.drop-col ul a{font-size:13px;color:var(--text-main);text-decoration:none;padding:2px 0;display:block}
+.drop-col ul a:hover{color:var(--primary)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--radius-md);font-weight:600;font-size:15px;text-decoration:none;transition:all .2s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-secondary{background:var(--dark);color:#fff}
+.btn-secondary:hover{background:var(--dark-surface);transform:translateY(-1px)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-main)}
+.btn-outline:hover{background:var(--bg-light);border-color:var(--text-muted)}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-white:hover{background:#f1f5f9;transform:translateY(-1px)}
+.btn-ghost-white{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5);backdrop-filter:blur(8px)}
+.btn-ghost-white:hover{background:rgba(255,255,255,.25);border-color:#fff}
+
+/* ============ SLAYDİL ============ */
+.hero-slider{position:relative;height:600px;overflow:hidden;background:var(--dark)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px}
+.slide.active{opacity:1;z-index:2}
+.slide::before{content:"";position:absolute;inset:0;z-index:1}
+.slide-content{position:relative;z-index:2;max-width:900px;color:#fff}
+
+/* Slayt 1 - Ruhsat vurgusu */
+.slide-1::before{
+  /* FOTOĞRAF EKLEMEK İÇİN: alt satırı açın ve dosya adını yazın */
+  /* background-image:url('ekip.jpg'); background-size:cover; background-position:center; */
+  background:linear-gradient(135deg,rgba(15,23,42,.85) 0%,rgba(5,150,105,.75) 100%);
+}
+/* Slayt 2 - Güvenli yöntem */
+.slide-2::before{
+  /* background-image:url('istasyon.jpg'); background-size:cover; background-position:center; */
+  background:linear-gradient(135deg,rgba(15,23,42,.85) 0%,rgba(4,120,87,.8) 100%);
+}
+/* Slayt 3 - 39 ilçe / hız */
+.slide-3::before{
+  /* background-image:url('istanbul.jpg'); background-size:cover; background-position:center; */
+  background:linear-gradient(135deg,rgba(15,23,42,.85) 0%,rgba(30,41,59,.8) 100%);
+}
+
+.slide-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);color:#fff;padding:8px 18px;border-radius:50px;font-size:14px;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3)}
+.slide h1{font-size:clamp(30px,5vw,56px);font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+.slide h1 span{color:#34d399}
+.slide p{font-size:clamp(16px,2vw,19px);max-width:700px;margin:0 auto 36px;opacity:.95;font-weight:400}
+.slide-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:10;transition:.2s;backdrop-filter:blur(8px)}
+.slider-arrow:hover{background:rgba(255,255,255,.35)}
+.slider-arrow.prev{left:20px}
+.slider-arrow.next{right:20px}
+
+.slider-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
+.dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:.3s;padding:0}
+.dot.active{background:#fff;width:32px;border-radius:6px}
+
+.features{max-width:1240px;margin:-50px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;position:relative;z-index:20}
+.feature-card{background:#fff;border:1px solid var(--border);padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);display:flex;gap:16px;align-items:flex-start}
+.feature-card .icon-box{background:var(--primary-light);color:var(--primary);width:48px;height:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.feature-card h3{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.feature-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
+
+section{padding:80px 20px}
+.container{max-width:1240px;margin:0 auto}
+.section-header{text-align:center;max-width:650px;margin:0 auto 50px}
+.section-title{font-size:clamp(26px,3.5vw,32px);font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:12px}
+.section-subtitle{font-size:16px;color:var(--text-muted)}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.service-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all .3s ease}
+.service-card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:var(--shadow-xl)}
+.service-card h3{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:12px}
+.service-card p{font-size:15px;color:var(--text-muted)}
+
+.methods{background:var(--bg-light);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.method-card{background:#fff;padding:28px;border-radius:var(--radius-md);border:1px solid var(--border)}
+.method-card h3{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.method-card p{font-size:14px;color:var(--text-muted)}
+.content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;margin-top:40px}
+.content-box h3{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:14px}
+.content-box p{color:var(--text-main);font-size:15px;margin-bottom:16px}
+
+.price-card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.price-table{width:100%;border-collapse:collapse;text-align:left}
+.price-table th{background:var(--bg-light);padding:18px 24px;font-size:14px;font-weight:700;color:var(--dark);border-bottom:1px solid var(--border)}
+.price-table td{padding:18px 24px;font-size:15px;border-bottom:1px solid var(--border);color:var(--text-main)}
+.price-table tr:last-child td{border-bottom:none}
+.price-note{text-align:center;margin-top:16px;font-size:14px;color:var(--text-muted)}
+
+.districts-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.district-box{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:#fff}
+.district-head{padding:20px 24px;background:var(--bg-light);display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;font-size:17px;color:var(--dark);user-select:none;transition:.2s}
+.district-head:hover{background:#eef2f7}
+.district-head .arrow{transition:.3s;font-size:14px}
+.district-box.open .district-head .arrow{transform:rotate(180deg)}
+.district-body{padding:20px 24px;display:none}
+.district-box.open .district-body{display:block}
+.district-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.district-item{background:var(--bg-light);border:1px solid var(--border);padding:8px 12px;border-radius:var(--radius-sm);text-align:center;font-size:13px;font-weight:500;color:var(--dark);transition:.2s}
+.district-item:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+.process{background:var(--dark);color:#fff}
+.process .section-title{color:#fff}
+.process .section-subtitle{color:#94a3b8}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.step-card{text-align:center}
+.step-num{width:56px;height:56px;background:rgba(255,255,255,.1);color:var(--primary);border:2px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;margin:0 auto 20px}
+.step-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.step-card p{font-size:14px;color:#94a3b8}
+
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+.faq-q{width:100%;background:#fff;padding:20px 24px;border:none;text-align:left;font-size:16px;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.faq-q::after{content:"+";font-size:22px;color:var(--primary);transition:.3s;flex-shrink:0;line-height:1}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 24px;color:var(--text-muted);font-size:15px;background:#fff}
+.faq-item.open .faq-a{max-height:400px;padding:0 24px 20px}
+
+.cta-section{background:linear-gradient(135deg,#059669 0%,#047857 100%);color:#fff;border-radius:var(--radius-lg);padding:60px 40px;text-align:center}
+.cta-section h2{font-size:clamp(26px,4vw,36px);font-weight:800;margin-bottom:12px}
+.cta-section p{font-size:18px;opacity:.95;margin-bottom:30px}
+.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+footer{background:var(--dark);color:#94a3b8;padding:60px 20px 30px}
+.footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
+.footer-col h4{color:#fff;font-size:16px;font-weight:700;margin-bottom:20px}
+.footer-col a,.footer-col p{color:#94a3b8;text-decoration:none;display:block;margin-bottom:10px;font-size:14px}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #334155;margin-top:40px;padding-top:24px;text-align:center;font-size:13px}
+
+.hamburger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--dark)}
+.mobile-menu{display:none;background:#fff;border-bottom:1px solid var(--border);padding:20px}
+.mobile-menu.open{display:block}
+.mobile-menu > a{display:block;padding:12px 0;color:var(--dark);text-decoration:none;font-weight:600;border-bottom:1px solid var(--border)}
+.mobile-group-btn{background:var(--bg-light);color:var(--dark);border:none;width:100%;text-align:left;padding:12px 15px;border-radius:8px;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:10px 0 6px;font-weight:700}
+.mobile-group-btn span{transition:.3s}
+.mobile-group-btn.open span{transform:rotate(180deg)}
+.mobile-group-content{display:none;padding-left:6px;max-height:320px;overflow-y:auto}
+.mobile-group-content.open{display:block}
+.mobile-group-content h5{color:var(--primary);font-size:13px;margin:10px 0 5px;text-transform:uppercase;letter-spacing:.05em}
+.mobile-group-content a{display:block;color:var(--text-main);text-decoration:none;padding:6px 10px;font-size:14px;border-radius:6px}
+.mobile-group-content a:hover{background:var(--bg-light)}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.hamburger{display:block}
+.districts-wrap{grid-template-columns:1fr}
+section{padding:50px 20px}
+.cta-section{padding:40px 24px}
+.hero-slider{height:560px}
+.slider-arrow{width:38px;height:38px;font-size:16px}
+.slider-arrow.prev{left:10px}
+.slider-arrow.next{right:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<span>🛡️ İl Sağlık Müdürlüğü Ruhsatlı Firma</span> | 
+<span>7/24 Acil Çağrı:</span> <a href="tel:+908504660022">0850 466 00 22</a>
+</div>
+
+<header>
+<div class="nav-container">
+<a href="#" class="logo">Fareİlaçlama<span>İstanbul</span></a>
+<ul class="nav-links">
+<li><a href="#hizmetler">Hizmetler</a></li>
+<li><a href="#yontemler">Yöntemler</a></li>
+<li><a href="#fiyatlar">Fiyatlar</a></li>
+<li class="dropdown">
+<span class="dropdown-toggle">Bölgeler ▾</span>
+<div class="dropdown-menu">
+<div class="drop-col">
+<h4>Avrupa Yakası (25)</h4>
+<ul>
+<li><a href="#bolgeler">Arnavutköy</a></li><li><a href="#bolgeler">Avcılar</a></li><li><a href="#bolgeler">Bağcılar</a></li><li><a href="#bolgeler">Bahçelievler</a></li><li><a href="#bolgeler">Bakırköy</a></li><li><a href="#bolgeler">Başakşehir</a></li><li><a href="#bolgeler">Bayrampaşa</a></li><li><a href="#bolgeler">Beşiktaş</a></li><li><a href="#bolgeler">Beylikdüzü</a></li><li><a href="#bolgeler">Beyoğlu</a></li><li><a href="#bolgeler">Büyükçekmece</a></li><li><a href="#bolgeler">Çatalca</a></li><li><a href="#bolgeler">Esenler</a></li><li><a href="#bolgeler">Esenyurt</a></li><li><a href="#bolgeler">Eyüpsultan</a></li><li><a href="#bolgeler">Fatih</a></li><li><a href="#bolgeler">Gaziosmanpaşa</a></li><li><a href="#bolgeler">Güngören</a></li><li><a href="#bolgeler">Kağıthane</a></li><li><a href="#bolgeler">Küçükçekmece</a></li><li><a href="#bolgeler">Sarıyer</a></li><li><a href="#bolgeler">Silivri</a></li><li><a href="#bolgeler">Sultangazi</a></li><li><a href="#bolgeler">Şişli</a></li><li><a href="#bolgeler">Zeytinburnu</a></li>
+</ul>
+</div>
+<div class="drop-col">
+<h4>Anadolu Yakası (14)</h4>
+<ul>
+<li><a href="#bolgeler">Adalar</a></li><li><a href="#bolgeler">Ataşehir</a></li><li><a href="#bolgeler">Beykoz</a></li><li><a href="#bolgeler">Çekmeköy</a></li><li><a href="#bolgeler">Kadıköy</a></li><li><a href="#bolgeler">Kartal</a></li><li><a href="#bolgeler">Maltepe</a></li><li><a href="#bolgeler">Pendik</a></li><li><a href="#bolgeler">Sancaktepe</a></li><li><a href="#bolgeler">Sultanbeyli</a></li><li><a href="#bolgeler">Şile</a></li><li><a href="#bolgeler">Tuzla</a></li><li><a href="#bolgeler">Ümraniye</a></li><li><a href="#bolgeler">Üsküdar</a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><a href="#sss">SSS</a></li>
+<li><a href="tel:+908504660022" class="btn btn-primary" style="padding:8px 16px">📞 0850 466 00 22</a></li>
+</ul>
+<button class="hamburger" id="hamburger">☰</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#hizmetler">Hizmetler</a>
+<a href="#yontemler">Yöntemler</a>
+<a href="#fiyatlar">Fiyatlar</a>
+<button class="mobile-group-btn" id="mobileGroupBtn">Bölgeler <span>▾</span></button>
+<div class="mobile-group-content" id="mobileGroupContent">
+<h5>Avrupa Yakası (25)</h5>
+<a href="#bolgeler">Arnavutköy</a><a href="#bolgeler">Avcılar</a><a href="#bolgeler">Bağcılar</a><a href="#bolgeler">Bahçelievler</a><a href="#bolgeler">Bakırköy</a><a href="#bolgeler">Başakşehir</a><a href="#bolgeler">Bayrampaşa</a><a href="#bolgeler">Beşiktaş</a><a href="#bolgeler">Beylikdüzü</a><a href="#bolgeler">Beyoğlu</a><a href="#bolgeler">Büyükçekmece</a><a href="#bolgeler">Çatalca</a><a href="#bolgeler">Esenler</a><a href="#bolgeler">Esenyurt</a><a href="#bolgeler">Eyüpsultan</a><a href="#bolgeler">Fatih</a><a href="#bolgeler">Gaziosmanpaşa</a><a href="#bolgeler">Güngören</a><a href="#bolgeler">Kağıthane</a><a href="#bolgeler">Küçükçekmece</a><a href="#bolgeler">Sarıyer</a><a href="#bolgeler">Silivri</a><a href="#bolgeler">Sultangazi</a><a href="#bolgeler">Şişli</a><a href="#bolgeler">Zeytinburnu</a>
+<h5>Anadolu Yakası (14)</h5>
+<a href="#bolgeler">Adalar</a><a href="#bolgeler">Ataşehir</a><a href="#bolgeler">Beykoz</a><a href="#bolgeler">Çekmeköy</a><a href="#bolgeler">Kadıköy</a><a href="#bolgeler">Kartal</a><a href="#bolgeler">Maltepe</a><a href="#bolgeler">Pendik</a><a href="#bolgeler">Sancaktepe</a><a href="#bolgeler">Sultanbeyli</a><a href="#bolgeler">Şile</a><a href="#bolgeler">Tuzla</a><a href="#bolgeler">Ümraniye</a><a href="#bolgeler">Üsküdar</a>
+</div>
+<a href="#sss">SSS</a>
+<a href="tel:+908504660022" style="color:var(--primary)">📞 0850 466 00 22 İletişim</a>
+</div>
+</header>
+
+<!-- ============ SLAYDİL ============ -->
+<section class="hero-slider" id="heroSlider">
+<div class="slide slide-1 active">
+<div class="slide-content">
+<div class="slide-badge">✓ İl Sağlık Müdürlüğü Ruhsatlı Firma</div>
+<h1>İstanbul <span>Fare İlaçlama</span><br>Ruhsatlı ve Güvenli Çözüm</h1>
+<p>39 ilçede Sağlık Bakanlığı onaylı ilaçlar ve uzman ekibimizle 7/24 profesyonel fare kontrolü.</p>
+<div class="slide-actions">
+<a href="tel:+908504660022" class="btn btn-white">📞 0850 466 00 22</a>
+<a href="https://wa.me/908504660022" class="btn btn-ghost-white" target="_blank">💬 WhatsApp Destek</a>
+</div>
+</div>
+</div>
+
+<div class="slide slide-2">
+<div class="slide-content">
+<div class="slide-badge">🐾 Çocuk ve Evcil Hayvan Dostu</div>
+<h1>Kilitli İstasyon<br><span>Güvenli Uygulama</span></h1>
+<p>Emniyetli istasyon sistemlerimiz sayesinde çocuklarınız ve evcil hayvanlarınız için risk oluşturmaz.</p>
+<div class="slide-actions">
+<a href="tel:+908504660022" class="btn btn-white">📞 Bilgi Alın</a>
+<a href="#yontemler" class="btn btn-ghost-white">🔍 Yöntemleri Gör</a>
+</div>
+</div>
+</div>
+
+<div class="slide slide-3">
+<div class="slide-content">
+<div class="slide-badge">📍 39 İlçede Hizmet</div>
+<h1>Avrupa ve Anadolu Yakası<br><span>7/24 Mobil Ekip</span></h1>
+<p>Her iki yakada mobil ekiplerimizle kısa sürede adresinizdeyiz. Ücretsiz keşif ve net fiyat teklifi.</p>
+<div class="slide-actions">
+<a href="tel:+908504660022" class="btn btn-white">📞 Ekip Yönlendir</a>
+<a href="#bolgeler" class="btn btn-ghost-white">📍 Bölgenizi Seçin</a>
+</div>
+</div>
+</div>
+
+<button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Önceki">‹</button>
+<button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Sonraki">›</button>
+
+<div class="slider-dots" id="sliderDots">
+<button class="dot active" onclick="goToSlide(0)" aria-label="Slayt 1"></button>
+<button class="dot" onclick="goToSlide(1)" aria-label="Slayt 2"></button>
+<button class="dot" onclick="goToSlide(2)" aria-label="Slayt 3"></button>
+</div>
+</section>
+
+<div class="features">
+<div class="feature-card">
+<div class="icon-box">📜</div>
+<div><h3>İl Sağlık Müdürlüğü Ruhsatlı</h3><p>Yasal yetkiye sahip, denetlenebilir ve belgeli firma olarak hizmet veriyoruz.</p></div>
+</div>
+<div class="feature-card">
+<div class="icon-box">🛡️</div>
+<div><h3>Onaylı İlaçlar</h3><p>Yalnızca Sağlık Bakanlığı ve WHO onaylı biyosidal ürünler kullanıyoruz.</p></div>
+</div>
+<div class="feature-card">
+<div class="icon-box">🐾</div>
+<div><h3>Evcil Hayvan Dostu</h3><p>Kilitli istasyonlar sayesinde çocuklar ve evcil hayvanlar için risk oluşturmaz.</p></div>
+</div>
+</div>
+
+<section id="hizmetler">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Hizmet Alanlarımız</h2>
+<p class="section-subtitle">Tüm mekân tiplerine özel geliştirilmiş fare kontrol protokolleri</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<h3>🏠 Ev ve Konut İlaçlama</h3>
+<p>Müstakil ev, daire ve villalarda kokusuz, kilitli yem istasyonları ile güvenli ve hijyenik çözüm. Çocuklar ve evcil hayvanlar için risk oluşturmaz.</p>
+</div>
+<div class="service-card">
+<h3>🏢 Ticari ve İdari Binalar</h3>
+<p>Restoran, kafe, otel, market ve depolarda mevzuata uygun rutin kontroller, denetimlere uygun raporlama ve periyodik takip.</p>
+</div>
+<div class="service-card">
+<h3>🏘️ Toplu Konut ve Siteler</h3>
+<p>Ortak kullanım alanları, sığınak, çatı ve çevre sınırlarında periyodik koruyucu hat kurulumu. Site yönetimlerine düzenli raporlama.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="yontemler" class="methods">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Teknik Uygulama Yöntemleri</h2>
+<p class="section-subtitle">Saha keşfi sonrası alana en uygun profesyonel yöntem seçilir</p>
+</div>
+<div class="method-grid">
+<div class="method-card">
+<h3>🔒 Kilitli İstasyon Sistemi</h3>
+<p>Dış etkenlerden etkilenmeyen kilitli kutular içine yerleştirilen cezbedici yemler ile çocuk ve evcil hayvanlardan uzak, güvenli tam koruma. Açık alanlarda tercih edilir.</p>
+</div>
+<div class="method-card">
+<h3>🧪 Pasta (Paste) Zehir</h3>
+<p>Neme dayanıklı, kek kıvamında yemlerin dar ve ulaşılması zor alanlara bırakıldığı yöntem. Kurutma mekanizmasıyla etki ettiği için ortamda koku yapmaz.</p>
+</div>
+<div class="method-card">
+<h3>🌾 Granül Yemleme (Pellet)</h3>
+<p>Kapalı ve kuru alanlarda hızlı etki gösteren granül yemlerin serpilerek uygulandığı yöntem. Depo, bodrum ve kapalı geçiş noktalarında yüksek etkinlik sağlar.</p>
+</div>
+</div>
+<div class="content-box">
+<h3>Neden Profesyonel Hizmet Almalısınız?</h3>
+<p>Fareler, insan sağlığı için ciddi tehdit oluşturan birçok hastalığın taşıyıcısıdır. Kanalizasyon ve çöp alanlarında dolaşarak veba, tifüs, dizanteri gibi hastalıkları yaşam alanlarına taşırlar. Bireysel yöntemler (kapan, yapışkan) hızlı üreyen popülasyonlarda yetersiz kalır ve sorunu çözmez.</p>
+<p>Halk Sağlığı Alanında Haşerelere Karşı İlaçlama Usul ve Esasları Hakkında Yönetmelik'e uygun şekilde, İl Sağlık Müdürlüğü ruhsatımız ve uzman ekibimizle kemirgen girişlerini değerlendiriyor, doğru yöntemi seçiyor ve ortamı kalıcı olarak güvenceye alıyoruz.</p>
+</div>
+</div>
+</section>
+
+<section id="fiyatlar">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Şeffaf Fiyatlandırma</h2>
+<p class="section-subtitle">Uygulama yapılacak alanın metrekaresine göre tahmini ücret tablosu</p>
+</div>
+<div class="price-card">
+<table class="price-table">
+<thead>
+<tr><th>Alan Büyüklüğü</th><th>Hizmet Ücreti</th></tr>
+</thead>
+<tbody>
+<tr><td>0 – 100 m²</td><td><strong>800 – 1.000 TL</strong></td></tr>
+<tr><td>100 – 150 m²</td><td><strong>1.000 – 1.500 TL</strong></td></tr>
+<tr><td>150 – 250 m²</td><td><strong>1.500 – 2.000 TL</strong></td></tr>
+<tr><td>250 m² ve üzeri</td><td><a href="tel:+908504660022" style="color:var(--primary);font-weight:600">Özel Fiyat Teklifi Alın</a></td></tr>
+</tbody>
+</table>
+</div>
+<p class="price-note">* Kesin fiyat, ücretsiz keşif sonrası netleşir. Kullandığımız tüm ilaç ve ekipman ithal, birinci kalitedir.</p>
+</div>
+</section>
+
+<section id="bolgeler" class="methods">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Hizmet Bölgelerimiz</h2>
+<p class="section-subtitle">İstanbul genelinde 39 ilçeye mobil ekiplerimizle ulaşıyoruz — ilçe listesi için tıklayın</p>
+</div>
+<div class="districts-wrap">
+<div class="district-box open" id="eurBox">
+<div class="district-head" onclick="toggleDistrict('eurBox')">
+<span>🏙️ Avrupa Yakası (25 İlçe)</span>
+<span class="arrow">▾</span>
+</div>
+<div class="district-body">
+<div class="district-grid">
+<div class="district-item">Arnavutköy</div><div class="district-item">Avcılar</div><div class="district-item">Bağcılar</div><div class="district-item">Bahçelievler</div><div class="district-item">Bakırköy</div><div class="district-item">Başakşehir</div><div class="district-item">Bayrampaşa</div><div class="district-item">Beşiktaş</div><div class="district-item">Beylikdüzü</div><div class="district-item">Beyoğlu</div><div class="district-item">Büyükçekmece</div><div class="district-item">Çatalca</div><div class="district-item">Esenler</div><div class="district-item">Esenyurt</div><div class="district-item">Eyüpsultan</div><div class="district-item">Fatih</div><div class="district-item">Gaziosmanpaşa</div><div class="district-item">Güngören</div><div class="district-item">Kağıthane</div><div class="district-item">Küçükçekmece</div><div class="district-item">Sarıyer</div><div class="district-item">Silivri</div><div class="district-item">Sultangazi</div><div class="district-item">Şişli</div><div class="district-item">Zeytinburnu</div>
+</div>
+</div>
+</div>
+<div class="district-box open" id="anaBox">
+<div class="district-head" onclick="toggleDistrict('anaBox')">
+<span>🌉 Anadolu Yakası (14 İlçe)</span>
+<span class="arrow">▾</span>
+</div>
+<div class="district-body">
+<div class="district-grid">
+<div class="district-item">Adalar</div><div class="district-item">Ataşehir</div><div class="district-item">Beykoz</div><div class="district-item">Çekmeköy</div><div class="district-item">Kadıköy</div><div class="district-item">Kartal</div><div class="district-item">Maltepe</div><div class="district-item">Pendik</div><div class="district-item">Sancaktepe</div><div class="district-item">Sultanbeyli</div><div class="district-item">Şile</div><div class="district-item">Tuzla</div><div class="district-item">Ümraniye</div><div class="district-item">Üsküdar</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="process">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Çalışma Sürecimiz</h2>
+<p class="section-subtitle">3 adımda tam kontrol ve hijyen</p>
+</div>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num">1</div>
+<h3>Keşif ve Analiz</h3>
+<p>Giriş yolları ve popülasyon tespiti için alanda detaylı inceleme yapıyoruz.</p>
+</div>
+<div class="step-card">
+<div class="step-num">2</div>
+<h3>Uygulama</h3>
+<p>Ortama özel onaylı biyosidal ürünlerle kilitli istasyonlar kuruyoruz.</p>
+</div>
+<div class="step-card">
+<div class="step-num">3</div>
+<h3>Periyodik Takip</h3>
+<p>İşlem sonrası düzenli ziyaretler ile sonucu kontrol ediyoruz.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="sss">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Sıkça Sorulan Sorular</h2>
+<p class="section-subtitle">Fare ilaçlama hakkında merak edilenler</p>
+</div>
+<div class="faq-list">
+
+<div class="faq-item">
+<button class="faq-q">Fare ilaçlama nasıl yapılır?</button>
+<div class="faq-a"><p>Fare ilaçlama, alanın incelenmesiyle başlar. Uzman ekibimiz farelerin giriş noktalarını ve yoğunluğunu tespit eder, ardından mekâna en uygun yöntemi (kilitli istasyon, granül yemleme veya pasta zehir) seçer. Uygulama, İl Sağlık Müdürlüğü ruhsatlı firmamız tarafından Sağlık Bakanlığı onaylı ilaçlarla yapılır.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">İlaçlama sırasında evi terk etmem gerekir mi?</button>
+<div class="faq-a"><p>Kilitli istasyon ve pasta zehir yöntemlerinde evi terk etmenize gerek yoktur. Ürünler kokusuzdur ve havaya yayılmaz. Ancak geniş alan uygulamalarında ekibimiz size önceden bilgi verir.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">İlaçlar çocuklara ve evcil hayvanlara zarar verir mi?</button>
+<div class="faq-a"><p>Hayır. Tüm yem grupları yalnızca anahtarla açılabilen emniyetli istasyonlar içinde yerleştirilir. Çocuklar ve evcil hayvanlar bu istasyonlara ulaşamaz.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">Fare ilaçlama ücreti nasıl belirlenir?</button>
+<div class="faq-a"><p>Ücret; uygulama yapılacak alanın büyüklüğüne, fare popülasyonunun yoğunluğuna ve seçilen yönteme göre değişir. Ücretsiz keşif sonrası size net fiyat sunulur; sürpriz ek ücret çıkmaz.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">İl Sağlık Müdürlüğü ruhsatı neden önemli?</button>
+<div class="faq-a"><p>İl Sağlık Müdürlüğü ruhsatı, firmanın yasal olarak ilaçlama hizmeti verme yetkisine sahip olduğunu, denetlendiğini ve belirli standartları karşıladığını gösterir. Belgesiz firmalar hem yasal risk taşır hem de insan sağlığını tehdit edebilir.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">Güvenilir fare ilaçlama firması nasıl seçilir?</button>
+<div class="faq-a"><p>Firmanın İl Sağlık Müdürlüğü ruhsatına sahip olması, Sağlık Bakanlığı ve WHO onaylı ilaçlar kullanması, eğitimli personel ile çalışması ve uygulama sonrası takip hizmeti sunması gerekir. Belgesiz firmalara itibar etmeyin.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">Fare ilaçlama sonrası temizlik nasıl yapılmalı?</button>
+<div class="faq-a"><p>Kullanılan yönteme göre temizlik farklılık gösterir. Kokulu uygulamalarda temizlik hemen yapılmaz; kokusuz uygulamalarda yüzeyler su ve temiz bir bezle silinebilir. Sıvı uygulama yapıldıysa bir hafta boyunca ıslak temizlik yerine kuru temizlik tercih edilmelidir.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">Evde fare olduğunu nasıl anlarım?</button>
+<div class="faq-a"><p>Açıkta bırakılan gıdaların kemirilmesi, gezdikleri yollarda bıraktıkları dışkı ve idrar izleri, mobilya veya kablo gibi eşyaların kemirilmesi, geceleri gelen tıkırtı sesleri evde fare olduğunun başlıca belirtileridir.</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q">Fareler hangi hastalıkları bulaştırır?</button>
+<div class="faq-a"><p>Fareler kanalizasyon ve çöp alanlarında dolaştıkları için birçok virüs ve bakteri taşır. Veba, tifüs, dizanteri, humma ve alerjik reaksiyonlar bunların başlıcalarıdır. Bu nedenle fare görülen alanlarda vakit kaybetmeden profesyonel destek alınmalıdır.</p></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="container" style="padding-bottom:80px">
+<div class="cta-section">
+<h2>Fare Sorununa Kalıcı Son Verin</h2>
+<p>Hemen arayın, adresinize en yakın ruhsatlı ekibimizi yönlendirelim.</p>
+<div class="cta-actions">
+<a href="tel:+908504660022" class="btn btn-secondary">📞 0850 466 00 22</a>
+<a href="https://wa.me/908504660022" class="btn btn-outline" style="color:#fff;border-color:#fff" target="_blank">💬 WhatsApp Canlı Destek</a>
+</div>
+</div>
+</div>
+
+<footer>
+<div class="footer-grid">
+<div class="footer-col">
+<h4>Fare İlaçlama İstanbul</h4>
+<p>İl Sağlık Müdürlüğü ruhsatlı firmamızla İstanbul'un 39 ilçesinde Sağlık Bakanlığı onaylı ilaçlarla fare ve kemirgen kontrolü hizmeti.</p>
+</div>
+<div class="footer-col">
+<h4>Hızlı Bağlantılar</h4>
+<a href="#hizmetler">Hizmetlerimiz</a>
+<a href="#yontemler">Uygulama Yöntemleri</a>
+<a href="#fiyatlar">Fiyat Listesi</a>
+<a href="#bolgeler">Hizmet Bölgeleri</a>
+<a href="#sss">Sıkça Sorulan Sorular</a>
+</div>
+<div class="footer-col">
+<h4>İletişim</h4>
+<p>📞 Telefon: <a href="tel:+908504660022">0850 466 00 22</a></p>
+<p>💬 WhatsApp: <a href="https://wa.me/908504660022">0850 466 00 22</a></p>
+<p>📍 İstanbul / Türkiye</p>
+<p>🕐 7/24 Hizmet</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 fareilaclamaistanbul.com | Tüm Hakları Saklıdır
+</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+mobileMenu.classList.toggle('open');
+hamburger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+});
+
+const mobileGroupBtn = document.getElementById('mobileGroupBtn');
+const mobileGroupContent = document.getElementById('mobileGroupContent');
+mobileGroupBtn.addEventListener('click', () => {
+mobileGroupBtn.classList.toggle('open');
+mobileGroupContent.classList.toggle('open');
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.remove('open');
+hamburger.textContent = '☰';
+});
+});
+
+function toggleDistrict(id){
+document.getElementById(id).classList.toggle('open');
+}
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+btn.addEventListener('click', () => {
+btn.parentElement.classList.toggle('open');
+});
+});
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let autoSlideInterval;
+
+function showSlide(index){
+  slides.forEach((s,i) => s.classList.toggle('active', i === index));
+  dots.forEach((d,i) => d.classList.toggle('active', i === index));
+  currentSlide = index;
+}
+
+function changeSlide(dir){
+  let next = currentSlide + dir;
+  if(next < 0) next = slides.length - 1;
+  if(next >= slides.length) next = 0;
+  showSlide(next);
+  resetAutoSlide();
+}
+
+function goToSlide(index){
+  showSlide(index);
+  resetAutoSlide();
+}
+
+function startAutoSlide(){
+  autoSlideInterval = setInterval(() => {
+    let next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+  }, 6000);
+}
+
+function resetAutoSlide(){
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+const heroSlider = document.getElementById('heroSlider');
+heroSlider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+heroSlider.addEventListener('mouseleave', startAutoSlide);
+
+startAutoSlide();
+</script>
+
+</body>
+</html>
