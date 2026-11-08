@@ -35,9 +35,9 @@ body{background:#fff;color:var(--text-main);line-height:1.6}
 .topbar a:hover{text-decoration:underline}
 
 header{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border)}
-.nav-container{max-width:1240px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:800;color:var(--dark);text-decoration:none;letter-spacing:0.5px; white-space:nowrap;}
-.logo span{color:var(--primary)}
+.nav-container{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+/* YENİ LOGO AYARLARI */
+.logo-img{height:55px; width:auto; display:block;}
 .nav-links{display:flex;gap:32px;align-items:center;list-style:none}
 .nav-links a{color:var(--text-main);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--primary)}
@@ -215,7 +215,7 @@ section{padding:50px 20px}
 .slider-arrow.next{right:10px}
 .calc-input-group{flex-direction:column}
 .calc-input-group button{padding:14px}
-.logo{font-size:18px;} /* Mobilde biraz küçültelim */
+.logo-img{height:45px;} /* Mobilde logo biraz küçülür */
 }
 </style>
 </head>
@@ -228,7 +228,10 @@ section{padding:50px 20px}
 
 <header>
 <div class="nav-container">
-<a href="#" class="logo">Fare İlaçlama <span>İstanbul</span></a>
+<!-- LOGO GÖRSELİ EKLENDİ -->
+<a href="#" class="logo">
+    <img src="https://raw.githubusercontent.com/ayhn37/fare-ilaclama-istanbul/main/logo.jpg" alt="Fare İlaçlama İstanbul Logo" class="logo-img">
+</a>
 <ul class="nav-links">
 <li><a href="#hizmetler">Hizmetler</a></li>
 <li><a href="#yontemler">Yöntemler</a></li>
@@ -596,7 +599,6 @@ btn.parentElement.classList.toggle('open');
 });
 });
 
-// ============ GELİŞMİŞ KADEMELİ FİYAT HESAPLAYICI ============
 function calculatePrice() {
   let m2 = parseInt(document.getElementById('m2Input').value);
   const resultDiv = document.getElementById('calcResult');
@@ -639,7 +641,6 @@ function calculatePrice() {
   resultDiv.classList.add('show');
 }
 
-// ============ SLAYDİL MANTIĞI ============
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
