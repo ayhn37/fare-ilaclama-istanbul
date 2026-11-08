@@ -1,0 +1,8 @@
+name = "fare-ilaclama-istanbul"
+compatibility_date = "2026-11-08"
+main = "functions/api/auth.js"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+run_worker_first = [ "/api/*" ]
