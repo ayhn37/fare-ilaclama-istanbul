@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şişli Fare İlaçlama | 7/24 Profesyonel Kemirgen Kontrolü</title>
+<meta name="description" content="Şişli'de fare ve kemirgen sorununa profesyonel çözüm. İl Sağlık Müdürlüğü ruhsatlı firmamızla Şişli genelinde 7/24 garantili fare ilaçlama hizmeti. Hemen arayın!">
+<!-- FAVICON KODLARI -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--primary:#059669;
+--primary-hover:#047857;
+--primary-light:#ecfdf5;
+--dark:#0f172a;
+--dark-surface:#1e293b;
+--text-main:#334155;
+--text-muted:#64748b;
+--bg-light:#f8fafc;
+--border:#e2e8f0;
+--radius-lg:16px;
+--radius-md:12px;
+--radius-sm:8px;
+--shadow-md:0 4px 6px -1px rgb(0 0 0 / 0.1);
+--shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--text-main);line-height:1.6}
+
+.topbar{background:linear-gradient(90deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:8px 20px;font-size:14px;font-weight:500;text-align:center;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+.topbar a{color:#34d399;font-weight:700;text-decoration:none}
+header{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border)}
+.nav-container{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:6px;text-decoration:none;}
+.logo-img{height:55px; width:auto; display:block;}
+.logo-text{font-size:36px;font-weight:800;color:var(--dark);letter-spacing:-1px;white-space:nowrap;}
+.logo-text span{color:var(--primary);}
+.nav-links{display:flex;gap:32px;align-items:center;list-style:none}
+.nav-links a{color:var(--text-main);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--radius-md);font-weight:600;font-size:15px;text-decoration:none;transition:all .2s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-hover);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-secondary{background:var(--dark);color:#fff}
+.btn-secondary:hover{background:var(--dark-surface);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-ghost-white{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5);backdrop-filter:blur(8px)}
+.btn-ghost-white:hover{background:rgba(255,255,255,.25);border-color:#fff}
+
+/* SAYFA İÇERİĞİ */
+.page-header{background:linear-gradient(135deg, rgba(15,23,42,.9), rgba(5,150,105,.8)), url('https://raw.githubusercontent.com/ayhn37/fare-ilaclama-istanbul/main/fare-istila.jpg'); background-size:cover; background-position:center; padding:100px 20px; text-align:center; color:#fff;}
+.page-header h1{font-size:clamp(32px,5vw,48px); font-weight:800; margin-bottom:15px;}
+.page-header p{font-size:18px; max-width:800px; margin:0 auto 30px; opacity:.9;}
+.content-section{padding:60px 20px;}
+.container{max-width:900px; margin:0 auto;}
+.content-section h2{font-size:26px; color:var(--dark); margin-top:35px; margin-bottom:15px; padding-bottom:10px; border-bottom:2px solid var(--primary-light);}
+.content-section h3{font-size:20px; color:var(--primary); margin-top:25px; margin-bottom:10px;}
+.content-section p{margin-bottom:15px; font-size:16px; color:var(--text-main); line-height:1.8;}
+.content-section ul{margin-bottom:20px; padding-left:20px;}
+.content-section li{margin-bottom:10px; font-size:16px; color:var(--text-main); line-height:1.7;}
+.content-section strong{color:var(--dark);}
+
+/* İLETİŞİM KUTUSU */
+.contact-box{background:var(--bg-light); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px 30px; margin-top:50px; text-align:center;}
+.contact-box h3{font-size:24px; margin-bottom:10px; color:var(--dark);}
+.contact-box p{font-size:16px; margin-bottom:25px;}
+.contact-box .buttons{display:flex; justify-content:center; gap:15px; flex-wrap:wrap;}
+
+footer{background:var(--dark);color:#94a3b8;padding:40px 20px 20px; text-align:center;}
+.footer-bottom{border-top:1px solid #334155;margin-top:20px;padding-top:20px;font-size:13px;}
+.footer-bottom a{color:#fff; text-decoration:none;}
+
+@media(max-width:900px){.nav-links{display:none} .logo-img{height:40px} .logo-text{font-size:20px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<span>🛡️ İl Sağlık Müdürlüğü Ruhsatlı Firma</span> | 
+<span>7/24 Acil Çağrı:</span> <a href="tel:+908504660022">0850 466 00 22</a>
+</div>
+
+<header>
+<div class="nav-container">
+<a href="index.html" class="logo">
+    <img src="https://raw.githubusercontent.com/ayhn37/fare-ilaclama-istanbul/main/logo.jpg" alt="Fare İlaçlama İstanbul Logo" class="logo-img">
+    <div class="logo-text">Fare İlaçlama <span>İstanbul</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Ana Sayfa</a></li>
+<li><a href="index.html#hizmetler">Hizmetler</a></li>
+<li><a href="index.html#fiyatlar">Fiyatlar</a></li>
+<li><a href="index.html#bolgeler">Bölgeler</a></li>
+<li><a href="tel:+908504660022" class="btn btn-primary" style="padding:8px 16px">📞 Hemen Ara</a></li>
+</ul>
+</div>
+</header>
+
+<div class="page-header">
+    <h1>Şişli Fare İlaçlama</h1>
+    <p>Mecidiyeköy'den Nişantaşı'na, Şişli'nin tüm mahallelerinde İl Sağlık Müdürlüğü ruhsatlı, Sağlık Bakanlığı onaylı ilaçlarla 7/24 profesyonel kemirgen kontrolü.</p>
+    <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+        <a href="tel:+908504660022" class="btn btn-white" style="background:#fff; color:#059669;">📞 0850 466 00 22</a>
+        <a href="https://wa.me/908504660022" class="btn btn-ghost-white" target="_blank" style="color:#fff; border-color:#fff;">💬 WhatsApp Destek</a>
+    </div>
+</div>
+
+<section class="content-section">
+    <div class="container">
+        
+        <p>İstanbul'un en hareketli, ticari ve nüfus yoğunluğu en yüksek merkezlerinden biri olan Şişli, tarihi binaları, iş merkezleri, restoranları ve kalabalık konut dokusuyla bilinir. Mecidiyeköy'den Nişantaşı'na, Halide Edip Adıvar'dan Teşvikiye'ye kadar geniş bir coğrafyayı kapsayan bu dinamik yapı, ne yazık ki kemirgenler ve fareler için de son derece elverişli yaşam alanları sunar. Eski binalardaki ortak tesisat boşlukları, kanalizasyon hatlarının eskimesi, yoğun insan sirkülasyonu ve gıda atıkları, farelerin Şişli genelinde hızla barınmasına ve çoğalmasına zemin hazırlar.</p>
+        
+        <p>Fareler, yalnızca maddi zararlara yol açan küçük canlılar değildir. Taşıdıkları tehlikeli mikroorganizmalar ve patojenler nedeniyle insan sağlığını doğrudan tehdit eden ciddi birer vektördür. Bu nedenle Şişli fare ilaçlama hizmetleri, bireysel çabalarla geçiştirilemeyecek, mutlaka uzmanlık, mühendislik yaklaşımı ve profesyonel ekipman gerektiren kritik bir süreçtir.</p>
+        
+        <h2>Şişli'de Fare Probleminin Temel Nedenleri ve Risk Alanları</h2>
+        <p>Şişli, hem dikey yapılaşmanın hem de tarihi konut stokunun yoğun olduğu bir ilçedir. İlçe genelinde kemirgen popülasyonunun artmasında birkaç temel etken rol oynar:</p>
+        <ul>
+            <li><strong>Altyapı ve Tesisat Boşlukları:</strong> Özellikle eski binalarda kanalizasyon borularının çevresindeki boşluklar, havalandırma bacaları ve kablo geçiş kanalları, fareler için sokaklardan binalara geçiş otobanları görevi görür.</li>
+            <li><strong>Yoğun Yeme-İçme Sektörü:</strong> Şişli, kafe, restoran, otel ve gıda depolarının merkezidir. Gıda artıklarının ve atıkların yönetildiği alanlar, kemirgenler için sınırsız bir besin ve barınma kaynağı sunar.</li>
+            <li><strong>Kentsel Dönüşüm ve İnşaat Faaliyetleri:</strong> Bölgede sürekli devam eden yıkım, kazı ve inşaat çalışmaları, toprak altındaki yuvalarından edilen farelerin çevre binalara, iş yerlerine ve meskenlere göç etmesine neden olur.</li>
+            <li><strong>İklim Koşulları ve Mevsimsel Geçişler:</strong> Sonbahar ve kış aylarında hava sıcaklıklarının düşmesiyle birlikte kemirgenler, hayatta kalabilmek için sıcak ve korunaklı alanlar arayışına girerek iç mekanlara yönelirler.</li>
+        </ul>
+        
+        <h2>Kemirgenlerin Yaydığı Tehlikeler ve Verdiği Zararlar</h2>
+        <p>Fareler ve sıçanlar, biyolojik yapıları gereği sürekli kemirmek zorundadır. Kesici dişi yapıları her yıl ortalama 13-15 cm uzar ve bunu törpülemek için her şeyi kemirirler. Bu durum, yaşam alanlarında çok yönlü tehlikeleri beraberinde getirir:</p>
+        <ul>
+            <li><strong>Maddi ve Yapısal Hasarlar:</strong> Kabloları kemirmeleri sonucunda kısa devreler meydana gelebilir ve bu durum ciddi elektrik kontaklarına ve yangınlara sebep olabilir. Duvar içi yalıtım malzemelerini, su borularını ve ahşap mobilyaları kemirerek binalarda büyük masraflı hasarlar yaratırlar.</li>
+            <li><strong>Sağlık Tehditleri (Hastalık Yayılımı):</strong> Fareler; leptospiroz, hantavirüs, salmonella, tifüs ve veba gibi insan hayatını tehdit eden pek çok tehlikeli bakteriyel ve viral hastalığın taşıyıcısıdır. Dışkıları, idrarları ve salgılarıyla gıda maddelerini ve temas ettikleri yüzeyleri kirleterek enfeksiyon yayarlar.</li>
+            <li><strong>Hızlı Üreme Hızı:</strong> Bir dişi fare yılda birkaç kez yavrulayabilir ve her batında 6 ila 12 arasında yavru dünyaya getirebilir. Müdahale edilmediği takdirde birkaç hafta içinde küçük bir fare problemi, tüm binayı saran devasa bir istilaya dönüşebilir.</li>
+        </ul>
+        
+        <h2>Profesyonel Şişli Fare İlaçlama Süreci Nasıl İşler?</h2>
+        <p>Bireysel yöntemlerle (arketipik fare yapıştırıcıları, klasik tahta kapanlar veya marketten alınan gelişi güzel zehirler) fare problemini kalıcı olarak çözmek neredeyse imkansızdır. Bu yöntemler sadece birkaç zayıf veya genç fareyi yakalar; ancak koloninin liderini ve yuvalanan ana popülerin gizli kalmasına neden olur. Profesyonel bir yaklaşım ise şu katı bilimsel adımları izler:</p>
+        <h3>1. Keşif ve Risk Analizi</h3>
+        <p>Mekanın mimari yapısı, kemirgenin türü (Ev faresi, Lağım sıçanı, Çatı sıçanı vb.), giriş noktaları ve besin kaynakları yerinde tespit edilir. Yoğunluk haritası çıkarılarak doğru strateji belirlenir.</p>
+        <h3>2. Mekanik ve Fiziksel Önlemler (İzolasyon)</h3>
+        <p>İlaçlama tek başına yeterli değildir; dışarıdan yeni kemirgen girişini engellemek esastır. Kanalizasyon ağzı kontrolleri, rögarların sağlamlaştırılması, kapı altı fırçaları ve boru geçiş boşluklarının özel dolgu malzemeleriyle kapatılması sağlanır.</p>
+        <h3>3. Hedef Odaklı İstasyonlama ve Uygulama</h3>
+        <p>Alan büyüklüğüne ve risk derecesine göre, çocukların ve evcil hayvanların erişemeyeceği güvenli, kilitli istasyon sistemleri kurulur. İç mekanlarda ve dış alanlarda Sağlık Bakanlığı onaylı, profesyonel standartlara uygun, hedef dışı canlılara zarar vermeyen etkili formülasyonlar kullanılır.</p>
+        
+        <h2>Şişli'de İş Yeri ve Konutlar İçin Alınması Gereken Önlemler</h2>
+        <p>Kemirgen kontrolünde en başarılı sonuçlar, profesyonel hizmetin yanı sıra mülk sahiplerinin ve işletmecilerin alacağı koruyucu tedbirlerle elde edilir:</p>
+        <ul>
+            <li><strong>Gıda Güvenliği ve Depolama:</strong> Kuru gıdalar, unlu mamuller ve yemler kesinlikle açıkta bırakılmamalı, kemirgenlerin dişleriyle delemeyeceği cam veya kalın plastik kapalı kaplarda saklanmalıdır.</li>
+            <li><strong>Çöp Yönetimi:</strong> Evsel ve ticari atıklar düzenli olarak dışarı çıkarılmalı, çöp konteynerlerinin kapakları sürekli kapalı tutulmalıdır.</li>
+            <li><strong>Temizlik ve Hijyen Rutini:</strong> Alanın temizliğinde kimyasal dengeye dikkat edilmelidir. Uygulama sonrasında belirtilen süreler boyunca (özellikle ilk günlerde) yüzeylerin kimyasal dengesini bozmamak adına aşırı ıslak temizlikten kaçınılmalıdır.</li>
+        </ul>
+        
+        <h2>Neden Profesyonel Bir Çözüm Tercih Etmelisiniz?</h2>
+        <p>Şişli gibi yoğun ticari ve konut trafiğine sahip bir bölgede, fare problemlerinin ihmal edilmesi hem marka itibarını (iş yerleri için) hem de aile sağlığını (konutlar için) büyük riske atar. Amatör müdahalelerle vakit kaybetmek, sorunun büyümesine ve maliyetlerin katlanmasına yol açar.</p>
+        <p>Uzman kadro, doğru donanım ve Sağlık Bakanlığı onaylı biyosidal ürünlerle gerçekleştirilen profesyonel fare ve kemirgen kontrolü; evinizde, ofisinizde, restoranınızda veya deponuzda güvenli, hijyenik ve huzurlu bir ortamı kalıcı olarak tesis eder. Şişli'nin neresinde olursanız olun, kemirgen tehdidine karşı geç kalmadan uzman desteği almak en güvenli ve akılcı yatırımdır.</p>
+
+        <div class="contact-box">
+            <h3>Hemen Bilgi ve Randevu Alın</h3>
+            <p>Şişli'deki evinizde, ofisinizde veya işletmenizde fare sorununa kalıcı ve güvenli bir şekilde son vermek için uzman kadromuzla iletişime geçin.</p>
+            <div class="buttons">
+                <a href="tel:+908504660022" class="btn btn-primary">📞 0850 466 00 22</a>
+                <a href="https://wa.me/908504660022" class="btn btn-outline" style="border:1px solid #ccc; color:#333;">💬 WhatsApp Destek</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 fareilaclamaistanbul.com | Tüm Hakları Saklıdır.</p>
+    <div class="footer-bottom">
+        <a href="index.html">← Ana Sayfaya Dön</a>
+    </div>
+</footer>
+
+</body>
+</html>
